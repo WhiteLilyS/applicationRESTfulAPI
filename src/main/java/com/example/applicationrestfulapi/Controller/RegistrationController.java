@@ -2,9 +2,10 @@ package com.example.applicationrestfulapi.Controller;
 
 
 
-import com.example.applicationrestfulapi.modelUsersTable.IUsersTableRepository;
+import com.example.applicationrestfulapi.modelUsersTable.UsersTableRepository;
 import com.example.applicationrestfulapi.modelUsersTable.UsersTable;
 import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.security.crypto.password.PasswordEncoder;
 //import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,17 +14,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.management.relation.Role;
-
-//@SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
+@SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
 @Controller
 @RequestMapping("/registration")
 public class RegistrationController {
     @Autowired
-    private IUsersTableRepository iUsersTableRepository;
+    private UsersTableRepository usersTableRepository;
 //    @Autowired
-//    private PasswordEncoder passwordEncoder;
-
+//    public PasswordEncoder passwordEncoder;
     @GetMapping()
     public String getRegistration() {
         return "public/registration";
@@ -36,13 +34,22 @@ public class RegistrationController {
     }
     @PostMapping("/user/register")
     public String userRegistration(@RequestParam(name = "username") String username,
-                                   @RequestParam(name = "password") String password){
+                                   @RequestParam(name = "password") String password,
+                                   Model model){
+        if(username == null){
+            model.addAttribute("fail","fail");
+            return "public/login";
+        }
+        if(password == null){
+            model.addAttribute("fail","fail");
+            return "public/login";
+        }
         UsersTable user = new UsersTable();
         user.setUsername(username);
         user.setPassword(password);
 //        user.setPassword(passwordEncoder.encode(password));
         user.setIs_active(false);
-        iUsersTableRepository.save(user);
+        usersTableRepository.save(user);
 
         return "public/login";
     }

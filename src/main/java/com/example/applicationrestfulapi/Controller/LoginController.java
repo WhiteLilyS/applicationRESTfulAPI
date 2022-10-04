@@ -1,6 +1,6 @@
 package com.example.applicationrestfulapi.Controller;
 
-import com.example.applicationrestfulapi.modelUsersTable.IUsersTableRepository;
+import com.example.applicationrestfulapi.modelUsersTable.UsersTableRepository;
 import com.example.applicationrestfulapi.modelUsersTable.UsersTable;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import java.net.PasswordAuthentication;
 
 //@SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
 @Controller
@@ -24,12 +20,11 @@ import java.net.PasswordAuthentication;
 public class LoginController {
     //
 //    @Autowired
-//    private PasswordAuthentication passwordAuthenticatio;
+//    private PasswordAuthentication passwordAuthentication;
     @Autowired
-    private IUsersTableRepository iUsersTableRepository;
+    private UsersTableRepository usersTableRepository;
 
-//    @Autowired
-//    private PasswordEncoder passwordEncoder;
+
     @GetMapping("")
     public String getRequest() {
         return "public/login";
@@ -39,12 +34,16 @@ public class LoginController {
     public String checkUser(@RequestParam(name = "username") String username,
                             @RequestParam(name = "password") String password, Model model) {
         //TODO изменить проверку пароля добавив шифровку
-        if (!iUsersTableRepository.existsByUsername(username)) {
+        if (!usersTableRepository.existsByUsername(username) || username == null) {
             model.addAttribute("fail", "fail");
             return "public/login";
         }
-        UsersTable usersTable = iUsersTableRepository.findByUsername(username);
+        UsersTable usersTable = usersTableRepository.findByUsername(username);
         if (!usersTable.getPassword().equals(password)) {
+            model.addAttribute("fail", "fail");
+            return "public/login";
+        }
+        if (!usersTable.getIs_active()) {
             model.addAttribute("fail", "fail");
             return "public/login";
         }
