@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <link rel="stylesheet" th:href="@{/css/pageRequest.css}">
+    <title>Title</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div>
+    <table class="table">
+        <tr th:each="requesterFormTable : ${requesterFormTableDTOList}">
+            <td th:text="${requesterFormTable.getId()}"></td>
+            <td th:text="${requesterFormTable.getGatewayId()}"></td>
+            <td th:text="${requesterFormTable.getFirstNameFromRequester()}"></td>
+            <td th:text="${requesterFormTable.getRequesterId()}"></td>
+            <td th:text="${requesterFormTable.getContent()}"></td>
+            <td th:if="${requesterFormTable.getAnswer()}==null" style="visibility: visible">
+                <form th:action="@{/pageRequest/postRequestAnswer}" method="post">
+                    <div class="radio-buttons">
+                        <input type="text" name="requesterFormTableId" th:value="${requesterFormTable.getId()}" style="display: none">
+                        <input type="radio" value="positiveAnswer" name="answer" id="positiveAnswer">
+                        <label for="positiveAnswer">Positive</label>
+                        <input type="radio" value="negativeAnswer" name="answer" id="negativeAnswer">
+                        <label for="negativeAnswer">Negative</label>
+                        <input type="submit" value="Ответить">
+                    </div>
+                </form>
+            </td>
+            <td th:if="${requesterFormTable.getAnswer()}==positiveAnswer" style="background: green">positiveAnswer</td>
+            <td th:if="${requesterFormTable.getAnswer()}==negativeAnswer" style="background: red">negativeAnswer</td>
+
+        </tr>
+    </table>
+</div>
+</body>
+</html>

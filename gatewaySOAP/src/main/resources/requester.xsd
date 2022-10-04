@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema
+        version="1.0"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:tns="http://www.gatewaySOAP.kz/requester"
+        targetNamespace="http://www.gatewaySOAP.kz/requester"
+>
+    <!--    elementFormDefault="qualified"-->
+
+    <xs:element name="getMessageDataRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="sender" type="xs:string"/>
+                <xs:element name="Iin" type="xs:string"/>
+                <xs:element name="firstName" type="xs:string"/>
+                <xs:element name="lastName" type="xs:string"/>
+                <xs:element name="Patronymic" type="xs:string"/>
+                <xs:element name="Content" type="xs:string"/>
+                <xs:element name="externalAppName" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getResponseInfoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="requester" type="tns:requester"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="requester">
+        <xs:sequence>
+            <xs:element name="status" type="tns:status"/>
+            <xs:element name="requestId" type="xs:long"/>
+            <xs:element name="messageError" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="status">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="OK"/>
+            <xs:enumeration value="ERROR"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
