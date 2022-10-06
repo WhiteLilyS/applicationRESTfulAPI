@@ -37,6 +37,7 @@ public class RequesterService {
     private static final Map<String, RequesterOK> requesterOK = new HashMap<>();
 
     private static final Map<String, RequesterERROR> requesterERROR = new HashMap<>();
+
     @PostConstruct
     public void initData() {
 
@@ -49,6 +50,7 @@ public class RequesterService {
     public RequesterERROR findRequesterErrorUsername(String username) {
         return requesterERROR.get(username);
     }
+
     public RequesterOK findRequesterOkIin(String Iin) {
         return requesterOK.get(Iin);
     }
@@ -56,20 +58,23 @@ public class RequesterService {
     public RequesterOK findRequesterOkUsername(String username) {
         return requesterOK.get(username);
     }
-    public void putListErrorUsername(String username){
+
+    public void putListErrorUsername(String username) {
         RequesterERROR requesterErDTO = new RequesterErrorDTO();
         requesterErDTO.setStatus(Status.ERROR);
         requesterErDTO.setMessageError(username + " неверный отправитель");
         requesterERROR.put(username, requesterErDTO);
     }
-    public boolean checkExternalStatus(String externalAppName){
+
+    public boolean checkExternalStatus(String externalAppName) {
         ExternalAppTable externalAppTable = externalAppRepository.findExternalAppTableByName(externalAppName);
         if (externalAppTable.getIsActive()) {
             return true;
         } else
             return false;
     }
-    public void putListErrorExternalApp(String username){
+
+    public void putListErrorExternalApp(String username) {
         RequesterERROR requesterErDTO = new RequesterErrorDTO();
         requesterErDTO.setStatus(Status.ERROR);
         requesterErDTO.setMessageError("Неверное тело запроса");
@@ -77,9 +82,9 @@ public class RequesterService {
     }
 
     public void addIinInDB(String Iin,
-                             String firstName,
-                             String lastName,
-                             String patronymic) {
+                           String firstName,
+                           String lastName,
+                           String patronymic) {
         RequesterTable requesterTable = new RequesterTable();
         requesterTable.setIin(Iin);
         requesterTable.setFirstName(firstName);
@@ -100,14 +105,13 @@ public class RequesterService {
     }
 
     public void putListRequester(String Iin, Long gatewayId) {
-            RequesterTable requesterTable = requesterRepository.findByIin(Iin);
-            RequesterFormTable requesterFormTable = requesterFormRepository.findRequesterFormTableByGatewayId(gatewayId);
-            RequesterOkDTO requesterOkDTO = new RequesterOkDTO();
-            requesterOkDTO.setRequestId(requesterFormTable.getRequesterId());
-            requesterOkDTO.setStatus(Status.OK);
-            requesterOK.put(requesterTable.getIin(), requesterOkDTO);
+        RequesterTable requesterTable = requesterRepository.findByIin(Iin);
+        RequesterFormTable requesterFormTable = requesterFormRepository.findRequesterFormTableByGatewayId(gatewayId);
+        RequesterOkDTO requesterOkDTO = new RequesterOkDTO();
+        requesterOkDTO.setRequestId(requesterFormTable.getRequesterId());
+        requesterOkDTO.setStatus(Status.OK);
+        requesterOK.put(requesterTable.getIin(), requesterOkDTO);
     }
-
 
 
 //    public void putListErrorRequester(String username,String externalAppName) {

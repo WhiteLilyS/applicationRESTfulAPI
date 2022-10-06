@@ -17,8 +17,9 @@
             <td th:if="${requesterFormTable.getAnswer()}==null" style="visibility: visible">
                 <form th:action="@{/pageRequest/postRequestAnswer}" method="post">
                     <div class="radio-buttons">
-                        <input type="text" name="requesterFormTableId" th:value="${requesterFormTable.getId()}" style="display: none">
-                        <input type="radio" value="positiveAnswer" name="answer" id="positiveAnswer">
+                        <input type="text" name="requesterFormTableId" th:value="${requesterFormTable.getId()}"
+                               style="display: none">
+                        <input type="radio" value="positiveAnswer" name="answer" id="positiveAnswer" checked>
                         <label for="positiveAnswer">Positive</label>
                         <input type="radio" value="negativeAnswer" name="answer" id="negativeAnswer">
                         <label for="negativeAnswer">Negative</label>
@@ -28,7 +29,10 @@
             </td>
             <td th:if="${requesterFormTable.getAnswer()}==positiveAnswer" style="background: green">positiveAnswer</td>
             <td th:if="${requesterFormTable.getAnswer()}==negativeAnswer" style="background: red">negativeAnswer</td>
-
+            <td th:if="${fail} == fail">
+                <input type="text" th:if="${fail} == fail" style="visibility: visible;width: 260px "
+                       value="Неправильно введено имя или пароль" disabled>
+            </td>
         </tr>
     </table>
 </div>

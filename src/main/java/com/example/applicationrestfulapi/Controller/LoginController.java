@@ -32,16 +32,16 @@ public class LoginController {
         //TODO изменить проверку пароля добавив шифровку
         if (!usersTableRepository.existsByUsername(username) || username == null) {
             model.addAttribute("fail", "fail");
-            return "redirect:/login";
+            return "public/login";
         }
         UsersTable usersTable = usersTableRepository.findByUsername(username);
         if (!usersTable.getPassword().equals(password)) {
             model.addAttribute("fail", "fail");
-            return "redirect:/login";
+            return "public/login";
         }
         if (!usersTable.getIs_active()) {
-            model.addAttribute("fail", "fail");
-            return "redirect:/login";
+            model.addAttribute("failIsActive", "failIsActive");
+            return "public/login";
         }
 
         return "redirect:/pageRequest";

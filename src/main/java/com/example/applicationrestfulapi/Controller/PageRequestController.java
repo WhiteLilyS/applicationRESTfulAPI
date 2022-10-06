@@ -26,7 +26,6 @@ public class PageRequestController {
     private RequesterRepository requesterRepository;
 
 
-
     @GetMapping("")
     public String getPageRequest(Model model) {
         List<RequesterFormDTO> requesterFormTableDTOList = new ArrayList<>();
@@ -50,10 +49,8 @@ public class PageRequestController {
 
     //TODO исправить пустую отправку
     @PostMapping("/postRequestAnswer")
-    public String postRequestAnswer(@RequestParam(name = "requesterFormTableId") Long requesterFormTableId, @RequestParam(name = "answer") String answer) {
-        if (requesterFormTableId != null) {
-            pageRequesterService.addBDAnswer(answer, requesterFormTableId);
-        }
+    public String postRequestAnswer(@RequestParam(name = "requesterFormTableId", defaultValue = "null") Long requesterFormTableId, @RequestParam(name = "answer") String answer, Model model) {
+        pageRequesterService.addBDAnswer(answer, requesterFormTableId);
         return "redirect:/pageRequest";
     }
 

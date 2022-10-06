@@ -11,18 +11,21 @@
 
     <form class="login" th:action="@{/login/checkUser}" method="post">
         <p>Авторизация</p>
-        <div>
+        <div class="enterInput">
             <input type="text" name="username">
         </div>
-        <div>
+        <div class="enterInput">
             <input type="password" name="password">
         </div>
-        <div>
+        <div class="enterInput">
             <input type="submit" value="Войти">
         </div>
     </form>
-    <input type="text" th:if="${fail} == fail" style="visibility: visible;disable:none"
-           value="Неправильно введено имя или пароль">
+    <div class="failInput" >
+        <input type="text" th:if="${fail} == fail" style="visibility: visible;width: 260px " value="Неправильно введено имя или пароль" disabled>
+
+        <input type="text" th:if="${failIsActive} == failIsActive"  style="visibility: visible; width: 230px" value="Нет доступа для данного аккаунта" disabled>
+    </div>
 </div>
 </body>
 </html>
