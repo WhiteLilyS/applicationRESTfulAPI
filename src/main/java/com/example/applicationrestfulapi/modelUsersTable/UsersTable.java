@@ -7,8 +7,6 @@ import javax.persistence.*;
 @Entity
 @Data
 @Table(name = "users")
-//TODO понять можно ли привязать SOAP с Entity
-//при условии что нет переработать и изменить под SOAP
 public class UsersTable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

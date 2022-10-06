@@ -11,22 +11,22 @@ package kz.gatewaysoap.requester;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Java class for requesterERROR complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType&gt;
+ * &lt;complexType name="requesterERROR"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="requester" type="{http://www.gatewaySOAP.kz/requester}requesterOK"/&gt;
- *         &lt;element name="sender" type="{http://www.gatewaySOAP.kz/requester}requesterERROR"/&gt;
+ *         &lt;element name="status" type="{http://www.gatewaySOAP.kz/requester}status"/&gt;
+ *         &lt;element name="messageError" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,64 +36,64 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "requester",
-    "sender"
+@XmlType(name = "requesterERROR", propOrder = {
+    "status",
+    "messageError"
 })
-@XmlRootElement(name = "getResponseInfoResponse")
-public class GetResponseInfoResponse {
+public class RequesterERROR {
 
     @XmlElement(required = true)
-    protected RequesterOK requester;
+    @XmlSchemaType(name = "string")
+    protected Status status;
     @XmlElement(required = true)
-    protected RequesterERROR sender;
+    protected String messageError;
 
     /**
-     * Gets the value of the requester property.
+     * Gets the value of the status property.
      * 
      * @return
      *     possible object is
-     *     {@link RequesterOK }
+     *     {@link Status }
      *     
      */
-    public RequesterOK getRequester() {
-        return requester;
+    public Status getStatus() {
+        return status;
     }
 
     /**
-     * Sets the value of the requester property.
+     * Sets the value of the status property.
      * 
      * @param value
      *     allowed object is
-     *     {@link RequesterOK }
+     *     {@link Status }
      *     
      */
-    public void setRequester(RequesterOK value) {
-        this.requester = value;
+    public void setStatus(Status value) {
+        this.status = value;
     }
 
     /**
-     * Gets the value of the sender property.
+     * Gets the value of the messageError property.
      * 
      * @return
      *     possible object is
-     *     {@link RequesterERROR }
+     *     {@link String }
      *     
      */
-    public RequesterERROR getSender() {
-        return sender;
+    public String getMessageError() {
+        return messageError;
     }
 
     /**
-     * Sets the value of the sender property.
+     * Sets the value of the messageError property.
      * 
      * @param value
      *     allowed object is
-     *     {@link RequesterERROR }
+     *     {@link String }
      *     
      */
-    public void setSender(RequesterERROR value) {
-        this.sender = value;
+    public void setMessageError(String value) {
+        this.messageError = value;
     }
 
 }

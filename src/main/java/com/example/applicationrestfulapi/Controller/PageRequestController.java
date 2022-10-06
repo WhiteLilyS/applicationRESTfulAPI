@@ -15,17 +15,17 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@RequestMapping("/pageRequest")
 @Controller
+@RequestMapping("/pageRequest")
 public class PageRequestController {
-
     @Autowired
     private RequesterFormRepository requesterFormRepository;
-
     @Autowired
     private PageRequesterService pageRequesterService;
     @Autowired
     private RequesterRepository requesterRepository;
+
+
 
     @GetMapping("")
     public String getPageRequest(Model model) {
@@ -48,7 +48,7 @@ public class PageRequestController {
         return "public/pageRequest";
     }
 
-    //    //TODO исправить пустую отправку
+    //TODO исправить пустую отправку
     @PostMapping("/postRequestAnswer")
     public String postRequestAnswer(@RequestParam(name = "requesterFormTableId") Long requesterFormTableId, @RequestParam(name = "answer") String answer) {
         if (requesterFormTableId != null) {

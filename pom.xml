@@ -14,35 +14,99 @@
     <name>applicationRESTfulAPI</name>
     <description>applicationRESTfulAPI</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>8</java.version>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web-services</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>5.3.23</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.6.10.Final</version>
+        </dependency>
+
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>42.5.0</version>
         </dependency>
         <dependency>
+            <groupId>wsdl4j</groupId>
+            <artifactId>wsdl4j</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-web</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.projectlombok</groupId>-->
+<!--            <artifactId>lombok</artifactId>-->
+<!--            <optional>true</optional>-->
+<!--        </dependency>-->
         <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>5.6.10.Final</version>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.ws</groupId>
+            <artifactId>spring-ws-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sun.activation</groupId>
+            <artifactId>javax.activation</artifactId>
+            <version>1.2.0</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-core</artifactId>
+            <version>2.3.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-xjc</artifactId>
+            <version>2.3.3</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.ejb</groupId>
+            <artifactId>ejb-api</artifactId>
+            <version>3.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-runtime -->
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+            <version>2.3.6</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -50,34 +114,19 @@
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>com.example</groupId>
-            <artifactId>gatewaySOAP</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.security</groupId>-->
-<!--            <artifactId>spring-security-crypto</artifactId>-->
-<!--            <version>5.7.3</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-security</artifactId>-->
-<!--        </dependency>-->
-
-        <!--        <dependency>-->
-<!--            <groupId></groupId>-->
-<!--            <artifactId></artifactId>-->
-<!--        </dependency>-->
 
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+
+            <!-- Plugin required to build java classes from XSD using XJC -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>jaxb2-maven-plugin</artifactId>
@@ -88,26 +137,88 @@
                         <goals>
                             <goal>xjc</goal>
                         </goals>
-                    </execution>
-                </executions>
-                <configuration>
+                        <configuration>
+                            <sources>
+                                <source>${project.basedir}/gatewaySOAP/src/main/resources/requester.xsd</source>
+                            </sources>
+                            <packageName>kz.gatewaysoap.requester</packageName>
+                            <outputDirectory>${project.basedir}/src/main/java/</outputDirectory>
+                            <!--                            <schemaDirectory>${project.basedir}/src/main/resources/requester.xsd</schemaDirectory>-->
+                            <!--                            <schemaFiles>jaxb.xsd</schemaFiles>-->
 
-                    <sources>
-                        <source>${project.basedir}/src/main/resources/requester.xsd</source>
-                    </sources>
-                    <packageName>kz.gatewaysoap.requester</packageName>
-                    <outputDirectory>${project.basedir}/src/main/java</outputDirectory>
-                    <clearOutputDir>false</clearOutputDir>
-                    <!--                    <>${project.basedir}/src/main/resources/requester.xsd</>-->
-                    <!--                    <outputDirectory>${project.basedir}/src/main/java</outputDirectory>-->
-                    <!--                    <clearOutputDir>false</clearOutputDir>-->
-                    <!--                    <sources>-->
-                    <!--                        <source>${project.basedir}/src/main/resources/requester.xsd</source>-->
-                    <!--                    </sources>-->
-                    <!--                    <schemaDirectory>src/main/resources/requester.xsd</schemaDirectory>-->
-                    <!--                    <outputDirectory>${project.basedir}/src/main/java</outputDirectory>-->
-                </configuration>
+                            <clearOutputDir>false</clearOutputDir>
+                            <!--                    <>${project.basedir}/src/main/resources/requester.xsd</>-->
+                            <!--                    <outputDirectory>${project.basedir}/src/main/java</outputDirectory>-->
+                            <!--                    <clearOutputDir>false</clearOutputDir>-->
+                            <!--                    <sources>-->
+                            <!--                        <source>${project.basedir}/src/main/resources/requester.xsd</source>-->
+                            <!--                    </sources>-->
+                            <!--                    <schemaDirectory>src/main/resources/requester.xsd</schemaDirectory>-->
+                            <!--                    <outputDirectory>${project.basedir}/src/main/java</outputDirectory>-->
+                        </configuration>
+                    </execution>
+
+                </executions>
             </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.codehaus.mojo</groupId>-->
+<!--                <artifactId>jaxb2-maven-plugin</artifactId>-->
+<!--                <version>2.3.1</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>xjc</id>-->
+<!--                        <goals>-->
+<!--                            <goal>xjc</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--                <configuration>-->
+<!--                    <sources>-->
+<!--                        <source>${project.basedir}/gatewaySOAP/src/main/resources/requester.xsd</source>-->
+<!--                    </sources>-->
+<!--                    <packageName>kz.gatewaysoap.requester</packageName>-->
+<!--                    <outputDirectory>${project.basedir}/src/main/java</outputDirectory>-->
+<!--                    <clearOutputDir>false</clearOutputDir>-->
+<!--                    &lt;!&ndash;                    <>${project.basedir}/src/main/resources/requester.xsd</>&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    <outputDirectory>${project.basedir}/src/main/java</outputDirectory>&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    <clearOutputDir>false</clearOutputDir>&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    <sources>&ndash;&gt;-->
+<!--                    &lt;!&ndash;                        <source>${project.basedir}/src/main/resources/requester.xsd</source>&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    </sources>&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    <schemaDirectory>src/main/resources/requester.xsd</schemaDirectory>&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    <outputDirectory>${project.basedir}/src/main/java</outputDirectory>&ndash;&gt;-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+
+            <!--            <plugin>-->
+            <!--                <groupId>org.codehaus.mojo</groupId>-->
+            <!--                <artifactId>jaxb2-maven-plugin</artifactId>-->
+            <!--                <version>2.3.1</version>-->
+            <!--                <executions>-->
+            <!--                    <execution>-->
+            <!--                        <id>xjc</id>-->
+            <!--                        <goals>-->
+            <!--                            <goal>xjc</goal>-->
+            <!--                        </goals>-->
+            <!--                    </execution>-->
+            <!--                </executions>-->
+            <!--                <configuration>-->
+            <!--                    <sources>-->
+            <!--                        <source>applicationRESTfulAPI/gatewaySOAP/src/main/resources/requester.xsd</source>-->
+            <!--                    </sources>-->
+            <!--                    <packageName>kz.gatewaysoap.requester</packageName>-->
+            <!--                    <outputDirectory>applicationRESTfulAPI/src/main/java</outputDirectory>-->
+            <!--                    <clearOutputDir>false</clearOutputDir>-->
+            <!--                    &lt;!&ndash;                    <>${project.basedir}/src/main/resources/requester.xsd</>&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                    <outputDirectory>${project.basedir}/src/main/java</outputDirectory>&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                    <clearOutputDir>false</clearOutputDir>&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                    <sources>&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        <source>${project.basedir}/src/main/resources/requester.xsd</source>&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                    </sources>&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                    <schemaDirectory>src/main/resources/requester.xsd</schemaDirectory>&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                    <outputDirectory>${project.basedir}/src/main/java</outputDirectory>&ndash;&gt;-->
+            <!--                </configuration>-->
+            <!--            </plugin>-->
         </plugins>
     </build>
 

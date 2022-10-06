@@ -10,7 +10,6 @@ import javax.persistence.*;
 public class RequesterTable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @OneToMany(fetch = FetchType.LAZY,mappedBy = "id")
     private Long id;
     private String iin;
     @Column(name = "first_name")

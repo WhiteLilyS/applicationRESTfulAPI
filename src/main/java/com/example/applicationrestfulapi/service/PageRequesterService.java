@@ -10,8 +10,12 @@ import javax.transaction.Transactional;
 @Service
 public class PageRequesterService {
 
-    @Autowired
-    private RequesterFormRepository requesterFormRepository;
+    private  RequesterFormRepository requesterFormRepository;
+
+    public PageRequesterService(RequesterFormRepository requesterFormRepository) {
+        this.requesterFormRepository = requesterFormRepository;
+    }
+
     @Transactional
     public void addBDAnswer(String answer,Long requestFormTableId){
         RequesterFormTable requesterFormTable = requesterFormRepository.findById(requestFormTableId).get();

@@ -1,11 +1,9 @@
 package com.example.applicationrestfulapi.DTO;
 
-import kz.gatewaysoap.requester.Requester;
-import lombok.Getter;
-import lombok.Setter;
-import net.bytebuddy.implementation.bind.annotation.Super;
+//import kz.gatewaysoap.requester.Requester;
+import kz.gatewaysoap.requester.RequesterOK;
 
-public class RequesterMessageDTO extends Requester {
+public class RequesterOkDTO extends RequesterOK {
     private Long id;
     private String Iin;
     private String firstName;

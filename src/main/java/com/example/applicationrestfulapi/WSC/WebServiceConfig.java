@@ -37,6 +37,17 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         return wsdl11Definition;
 
     }
+//    @Bean(name = "sender")
+//    public DefaultWsdl11Definition Wsdl11Sender(XsdSchema requesterSchema) {
+//
+//        DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
+//        wsdl11Definition.setPortTypeName("RequesterPort");
+//        wsdl11Definition.setLocationUri("/ws");
+//        wsdl11Definition.setTargetNamespace("http://www.gatewaySOAP.kz/requester");
+//        wsdl11Definition.setSchema(requesterSchema);
+//        return wsdl11Definition;
+//
+//    }
 
     @Bean
     public XsdSchema requesterSchema() {

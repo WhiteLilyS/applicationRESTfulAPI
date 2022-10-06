@@ -28,9 +28,6 @@ public class RequesterFormTable {
     @Column(name = "gateway_id")
     private Long gatewayId;
     @Column(name = "requester_id")
-
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @Column(name = "requester_id")
     private Long requesterId;
     private String Content;
     private String answer;

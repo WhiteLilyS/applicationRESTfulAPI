@@ -13,16 +13,16 @@ Generated on: 2022.09.29 at 04:12:28 PM ALMT
       <package name="kz.gatewaysoap.requester"/>
     </schemaBindings>
     <bindings scd="tns:getMessageDataRequest">
-      <class ref="kz.gatewaysoap.requester.GetMessageDataRequest"/>
+      <class ref="com.example.applicationrestfulapi.requester.GetMessageDataRequest"/>
     </bindings>
     <bindings scd="tns:getResponseInfoResponse">
-      <class ref="kz.gatewaysoap.requester.GetResponseInfoResponse"/>
+      <class ref="com.example.applicationrestfulapi.requester.GetResponseInfoResponse"/>
     </bindings>
     <bindings scd="~tns:requester">
       <class ref="kz.gatewaysoap.requester.Requester"/>
     </bindings>
     <bindings scd="~tns:status">
-      <typesafeEnumClass ref="kz.gatewaysoap.requester.Status"/>
+      <typesafeEnumClass ref="com.example.applicationrestfulapi.requester.Status"/>
     </bindings>
   </bindings>
 </bindings>
