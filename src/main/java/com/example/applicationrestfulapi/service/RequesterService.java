@@ -113,45 +113,4 @@ public class RequesterService {
         requesterOK.put(requesterTable.getIin(), requesterOkDTO);
     }
 
-
-//    public void putListErrorRequester(String username,String externalAppName) {
-//        RequesterERROR requesterErDTO = new RequesterErrorDTO();
-//        RequesterOK requesterOKDTO = new RequesterOkDTO();
-//        if(putListUsernameStatus(username)== Status.OK){
-//            requesterOKDTO.setStatus(Status.OK);
-//            requesterOK.put(username,requesterOKDTO );
-//        }else {
-//            requesterErDTO.setStatus(Status.ERROR);
-//            requesterErDTO.setMessageError( username + " неверный отправитель");
-//            requesterERROR.put(username, requesterErDTO);
-//        }
-//        if(!checkExternalStatus(externalAppName)){
-//            requesterErDTO.setStatus(Status.ERROR);
-//            requesterErDTO.setMessageError(requesterErDTO.getMessageError() +"\n" + " неверное тело запроса");
-//        }
-//    }
-//
-//
-//
-//
-//    public Status putListExternalStatus(String externalAppName) {
-//        ExternalAppTable externalAppTable = externalAppRepository.findExternalAppTableByName(externalAppName);
-//        if (externalAppTable.getIsActive()) {
-//            return Status.OK;
-//        } else
-//            return Status.ERROR;
-//    }
-
-//    public Status putListUsernameStatus(String username) {
-//        if (!usersTableRepository.existsByUsername(username)) {
-//            return Status.ERROR;
-//        }
-//        UsersTable usersTable = usersTableRepository.findByUsername(username);
-//        if (usersTable.getIs_active()) {
-//            return Status.OK;
-//        } else
-//            return Status.ERROR;
-//    }
-
-
 }

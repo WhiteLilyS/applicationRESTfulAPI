@@ -47,7 +47,6 @@ public class PageRequestController {
         return "public/pageRequest";
     }
 
-    //TODO исправить пустую отправку
     @PostMapping("/postRequestAnswer")
     public String postRequestAnswer(@RequestParam(name = "requesterFormTableId", defaultValue = "null") Long requesterFormTableId, @RequestParam(name = "answer") String answer, Model model) {
         pageRequesterService.addBDAnswer(answer, requesterFormTableId);

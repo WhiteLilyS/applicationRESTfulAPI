@@ -42,53 +42,6 @@ public class RequesterEndpoint {
 
     }
 
-//    @GetMapping("/getResponse")
-//    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getMessageDataRequest")
-//    @ResponsePayload
-//    public GetResponseInfoResponse GetResponse(@RequestPayload GetMessageDataRequest request) {
-//        GetResponseInfoResponse response = new GetResponseInfoResponse();
-//        if (!iUsersTableRepository.existsByUsername(request.getSender())) {
-//            requesterRepository.putListErrorRequester(request.getSender());
-//            response.setMessageError(request.getSender() + " неверный отправитель");
-//            response.setRequester(requesterRepository.findRequesterUsername(request.getSender()));
-//            return response;
-//        }
-//        if (!iRequesterRepository.existsByIin(request.getIin())) {
-//            requesterRepository.checkIinInDB(request.getIin(), request.getFirstName(), request.getLastName(), request.getPatronymic());
-//        }
-//        RequesterTable requesterTable = iRequesterRepository.findByIin(request.getIin());
-//        Long gatewayID = requesterRepository.addRequesterFormDB(request.getContent(), requesterTable.getId());
-//        requesterRepository.putListRequester(request.getIin(), request.getExternalAppName(), gatewayID);
-//        response.setRequester(requesterRepository.findRequesterIin(request.getIin()));
-//
-//        return response;
-//    }
-
-//    @GetMapping("/getResponse")
-//    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getMessageDataRequest")
-//    @ResponsePayload
-//    public GetResponseInfoResponse GetResponseInfo(@RequestPayload GetMessageDataRequest request) {
-//        System.out.println(request.getSender()+" "+request.getFirstName()+" sender");
-////        RequesterRepository =  UsersTableRepository.findByUsername(request.getSender());
-//        GetResponseInfoResponse response = new GetResponseInfoResponse();
-////        RequesterOK responseOK = new RequesterOK();
-//
-//        if (!usersTableRepository.existsByUsername(request.getSender()) || !requesterService.checkExternalStatus(request.getExternalAppName())) {
-//            requesterService.putListErrorRequester(request.getSender(),request.getExternalAppName());
-//            response.setSender(requesterService.findRequesterErrorUsername(request.getSender()));
-//            return response;
-//        }
-//        if (!requesterRepository.existsByIin(request.getIin())) {
-//            requesterService.checkIinInDB(request.getIin(), request.getFirstName(), request.getLastName(), request.getPatronymic());
-//        }
-//        RequesterTable requesterTable = requesterRepository.findByIin(request.getIin());
-//        Long gatewayID = requesterService.addRequesterFormDB(request.getContent(), requesterTable.getId());
-//        requesterService.putListRequester(request.getIin(), request.getExternalAppName(), gatewayID);
-//        response.setRequester(requesterService.findRequesterOkIin(request.getIin()));
-//
-//        return response;
-//    }
-
     @GetMapping("/getResponce")
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getMessageDataRequest")
     @ResponsePayload
