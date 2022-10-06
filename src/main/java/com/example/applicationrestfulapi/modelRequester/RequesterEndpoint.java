@@ -57,6 +57,11 @@ public class RequesterEndpoint {
             response.setSender(requesterService.findRequesterErrorUsername(request.getSender()));
             return response;
         }
+        if(!requesterService.checkLenIin(request.getIin())){
+            requesterService.putListErrorLenIin(request.getSender());
+            response.setSender(requesterService.findRequesterErrorUsername(request.getSender()));
+            return response;
+        }
         if(!requesterRepository.existsByIin(request.getIin())){
             requesterService.addIinInDB(request.getIin(),request.getFirstName(),request.getLastName(),request.getPatronymic());
         }

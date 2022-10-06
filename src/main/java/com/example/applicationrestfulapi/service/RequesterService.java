@@ -68,10 +68,7 @@ public class RequesterService {
 
     public boolean checkExternalStatus(String externalAppName) {
         ExternalAppTable externalAppTable = externalAppRepository.findExternalAppTableByName(externalAppName);
-        if (externalAppTable.getIsActive()) {
-            return true;
-        } else
-            return false;
+        return externalAppTable.getIsActive();
     }
 
     public void putListErrorExternalApp(String username) {
@@ -81,17 +78,27 @@ public class RequesterService {
         requesterERROR.put(username, requesterErDTO);
     }
 
-    public void addIinInDB(String Iin,
+    public void addIinInDB(String iin,
                            String firstName,
                            String lastName,
                            String patronymic) {
         RequesterTable requesterTable = new RequesterTable();
-        requesterTable.setIin(Iin);
+        requesterTable.setIin(iin);
         requesterTable.setFirstName(firstName);
         requesterTable.setLastName(lastName);
         requesterTable.setPatronymic(patronymic);
         requesterRepository.save(requesterTable);
 
+    }
+
+    public boolean checkLenIin(String iin){
+        return iin.length() == 12;
+    }
+    public void putListErrorLenIin(String username) {
+        RequesterERROR requesterErDTO = new RequesterErrorDTO();
+        requesterErDTO.setStatus(Status.ERROR);
+        requesterErDTO.setMessageError("Неверная длинна ИИНа");
+        requesterERROR.put(username, requesterErDTO);
     }
 
     public Long addRequesterFormDB(String content, Long requesterId) {
@@ -104,8 +111,8 @@ public class RequesterService {
         return newGatewayId;
     }
 
-    public void putListRequester(String Iin, Long gatewayId) {
-        RequesterTable requesterTable = requesterRepository.findByIin(Iin);
+    public void putListRequester(String iin, Long gatewayId) {
+        RequesterTable requesterTable = requesterRepository.findByIin(iin);
         RequesterFormTable requesterFormTable = requesterFormRepository.findRequesterFormTableByGatewayId(gatewayId);
         RequesterOkDTO requesterOkDTO = new RequesterOkDTO();
         requesterOkDTO.setRequestId(requesterFormTable.getRequesterId());
