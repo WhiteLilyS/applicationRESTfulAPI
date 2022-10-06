@@ -17,9 +17,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType&gt;
  *   &lt;complexContent&gt;
@@ -37,18 +37,17 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "sender",
-    "iin",
-    "firstName",
-    "lastName",
-    "patronymic",
-    "content",
-    "externalAppName"
+        "sender",
+        "receiver",
+        "iin",
+        "firstName",
+        "lastName",
+        "patronymic",
+        "content",
+        "externalAppName"
 })
 @XmlRootElement(name = "getMessageDataRequest")
 public class GetMessageDataRequest {
@@ -67,14 +66,22 @@ public class GetMessageDataRequest {
     protected String content;
     @XmlElement(required = true)
     protected String externalAppName;
+    @XmlElement(required = true)
+    protected String receiver;
+
+    public String getReceiver() {
+        return receiver;
+    }
+
+    public void setReceiver(String receiver) {
+        this.receiver = receiver;
+    }
 
     /**
      * Gets the value of the sender property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getSender() {
         return sender;
@@ -82,11 +89,9 @@ public class GetMessageDataRequest {
 
     /**
      * Sets the value of the sender property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setSender(String value) {
         this.sender = value;
@@ -94,11 +99,9 @@ public class GetMessageDataRequest {
 
     /**
      * Gets the value of the iin property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getIin() {
         return iin;
@@ -106,11 +109,9 @@ public class GetMessageDataRequest {
 
     /**
      * Sets the value of the iin property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setIin(String value) {
         this.iin = value;
@@ -118,11 +119,9 @@ public class GetMessageDataRequest {
 
     /**
      * Gets the value of the firstName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getFirstName() {
         return firstName;
@@ -130,11 +129,9 @@ public class GetMessageDataRequest {
 
     /**
      * Sets the value of the firstName property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setFirstName(String value) {
         this.firstName = value;
@@ -142,11 +139,9 @@ public class GetMessageDataRequest {
 
     /**
      * Gets the value of the lastName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getLastName() {
         return lastName;
@@ -154,11 +149,9 @@ public class GetMessageDataRequest {
 
     /**
      * Sets the value of the lastName property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setLastName(String value) {
         this.lastName = value;
@@ -166,11 +159,9 @@ public class GetMessageDataRequest {
 
     /**
      * Gets the value of the patronymic property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getPatronymic() {
         return patronymic;
@@ -178,11 +169,9 @@ public class GetMessageDataRequest {
 
     /**
      * Sets the value of the patronymic property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setPatronymic(String value) {
         this.patronymic = value;
@@ -190,11 +179,9 @@ public class GetMessageDataRequest {
 
     /**
      * Gets the value of the content property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getContent() {
         return content;
@@ -202,11 +189,9 @@ public class GetMessageDataRequest {
 
     /**
      * Sets the value of the content property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setContent(String value) {
         this.content = value;
@@ -214,11 +199,9 @@ public class GetMessageDataRequest {
 
     /**
      * Gets the value of the externalAppName property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getExternalAppName() {
         return externalAppName;
@@ -226,11 +209,9 @@ public class GetMessageDataRequest {
 
     /**
      * Sets the value of the externalAppName property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setExternalAppName(String value) {
         this.externalAppName = value;

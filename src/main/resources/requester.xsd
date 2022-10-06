@@ -12,6 +12,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="sender" type="xs:string"/>
+                <xs:element name="receiver" type="xs:string"/>
                 <xs:element name="Iin" type="xs:string"/>
                 <xs:element name="firstName" type="xs:string"/>
                 <xs:element name="lastName" type="xs:string"/>
