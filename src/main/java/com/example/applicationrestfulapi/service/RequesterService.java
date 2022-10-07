@@ -43,20 +43,12 @@ public class RequesterService {
 
     }
 
-    public RequesterERROR findRequesterErrorIin(String Iin) {
-        return requesterERROR.get(Iin);
-    }
-
     public RequesterERROR findRequesterErrorUsername(String username) {
         return requesterERROR.get(username);
     }
 
     public RequesterOK findRequesterOkIin(String Iin) {
         return requesterOK.get(Iin);
-    }
-
-    public RequesterOK findRequesterOkUsername(String username) {
-        return requesterOK.get(username);
     }
 
     public void putListErrorUsername(String username) {
@@ -91,9 +83,10 @@ public class RequesterService {
 
     }
 
-    public boolean checkLenIin(String iin){
+    public boolean checkLenIin(String iin) {
         return iin.length() == 12;
     }
+
     public void putListErrorLenIin(String username) {
         RequesterERROR requesterErDTO = new RequesterErrorDTO();
         requesterErDTO.setStatus(Status.ERROR);
