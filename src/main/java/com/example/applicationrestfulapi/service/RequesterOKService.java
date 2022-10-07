@@ -32,63 +32,16 @@ public class RequesterOKService {
 
     private static final Map<String, RequesterOK> requesterOK = new HashMap<>();
 
-//    private static final Map<String, RequesterERROR> requesterERROR = new HashMap<>();
 
     @PostConstruct
     public void initData() {
 
     }
 
-//    public RequesterERROR findRequesterErrorUsername(String username) {
-//        return requesterERROR.get(username);
-//    }
 
     public RequesterOK findRequesterOkIin(String Iin) {
         return requesterOK.get(Iin);
     }
-
-//    public void putListErrorUsername(String username) {
-//        RequesterERROR requesterErDTO = new RequesterErrorDTO();
-//        requesterErDTO.setStatus(Status.ERROR);
-//        requesterErDTO.setMessageError(username + " неверный отправитель");
-//        requesterERROR.put(username, requesterErDTO);
-//    }
-//
-//    public boolean checkExternalStatus(String externalAppName) {
-//        ExternalAppTable externalAppTable = externalAppRepository.findExternalAppTableByName(externalAppName);
-//        return externalAppTable.getIsActive();
-//    }
-//
-//    public void putListErrorExternalApp(String username) {
-//        RequesterERROR requesterErDTO = new RequesterErrorDTO();
-//        requesterErDTO.setStatus(Status.ERROR);
-//        requesterErDTO.setMessageError("Неверное тело запроса");
-//        requesterERROR.put(username, requesterErDTO);
-//    }
-
-    public void addIinInDB(String iin,
-                           String firstName,
-                           String lastName,
-                           String patronymic) {
-        RequesterTable requesterTable = new RequesterTable();
-        requesterTable.setIin(iin);
-        requesterTable.setFirstName(firstName);
-        requesterTable.setLastName(lastName);
-        requesterTable.setPatronymic(patronymic);
-        requesterRepository.save(requesterTable);
-
-    }
-
-//    public boolean checkLenIin(String iin) {
-//        return iin.length() == 12;
-//    }
-//
-//    public void putListErrorLenIin(String username) {
-//        RequesterERROR requesterErDTO = new RequesterErrorDTO();
-//        requesterErDTO.setStatus(Status.ERROR);
-//        requesterErDTO.setMessageError("Неверная длинна ИИНа");
-//        requesterERROR.put(username, requesterErDTO);
-//    }
 
     public Long addRequesterFormDB(String content, Long requesterId) {
         RequesterFormTable requesterFormTable = new RequesterFormTable();

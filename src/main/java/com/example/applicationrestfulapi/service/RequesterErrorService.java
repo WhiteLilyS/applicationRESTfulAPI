@@ -89,15 +89,6 @@ public class RequesterErrorService {
         requesterERROR.put(username, requesterErDTO);
     }
 
-    public Long addRequesterFormDB(String content, Long requesterId) {
-        RequesterFormTable requesterFormTable = new RequesterFormTable();
-        Long newGatewayId = requesterFormRepository.getMaxId() + 1L;
-        requesterFormTable.setGatewayId(newGatewayId);
-        requesterFormTable.setRequesterId(requesterId);
-        requesterFormTable.setContent(content);
-        requesterFormRepository.save(requesterFormTable);
-        return newGatewayId;
-    }
 
 
 

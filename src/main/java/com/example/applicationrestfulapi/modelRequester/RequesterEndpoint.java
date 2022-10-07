@@ -45,35 +45,6 @@ public class RequesterEndpoint {
 
     }
 
-//    @GetMapping("/getResponce")
-//    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getMessageDataRequest")
-//    @ResponsePayload
-//    public GetResponseInfoResponse getResponseInfoResponse(@RequestPayload GetMessageDataRequest request) {
-//        GetResponseInfoResponse response = new GetResponseInfoResponse();
-//        if(!usersTableRepository.existsByUsername(request.getSender())){
-//            requesterService.putListErrorUsername(request.getSender());
-//            response.setSender(requesterService.findRequesterErrorUsername(request.getSender()));
-//            return response;
-//        }
-//        if(!requesterService.checkExternalStatus(request.getExternalAppName())){
-//            requesterService.putListErrorExternalApp(request.getSender());
-//            response.setSender(requesterService.findRequesterErrorUsername(request.getSender()));
-//            return response;
-//        }
-//        if(!requesterService.checkLenIin(request.getIin())){
-//            requesterService.putListErrorLenIin(request.getSender());
-//            response.setSender(requesterService.findRequesterErrorUsername(request.getSender()));
-//            return response;
-//        }
-//        if(!requesterRepository.existsByIin(request.getIin())){
-//            requesterService.addIinInDB(request.getIin(),request.getFirstName(),request.getLastName(),request.getPatronymic());
-//        }
-//        RequesterTable requesterTable = requesterRepository.findByIin(request.getIin());
-//        Long gatewayID = requesterService.addRequesterFormDB(request.getContent(), requesterTable.getId());
-//        requesterService.putListRequester(request.getIin(),gatewayID);
-//        response.setRequester(requesterService.findRequesterOkIin(request.getIin()));
-//        return response;
-//    }
 
     @GetMapping("/getResponce")
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getMessageDataRequest")
@@ -96,7 +67,7 @@ public class RequesterEndpoint {
             return response;
         }
         if(!requesterRepository.existsByIin(request.getIin())){
-            requesterOKService.addIinInDB(request.getIin(),request.getFirstName(),request.getLastName(),request.getPatronymic());
+            requesterErrorService.addIinInDB(request.getIin(),request.getFirstName(),request.getLastName(),request.getPatronymic());
         }
         RequesterTable requesterTable = requesterRepository.findByIin(request.getIin());
         Long gatewayID = requesterOKService.addRequesterFormDB(request.getContent(), requesterTable.getId());
