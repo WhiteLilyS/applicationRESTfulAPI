@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-//@SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
 @Controller
 @RequestMapping("/login")
 public class LoginController {
@@ -29,7 +28,7 @@ public class LoginController {
     @PostMapping("/checkUser")
     public String checkUser(@RequestParam(name = "username") String username,
                             @RequestParam(name = "password") String password, Model model) {
-        //TODO изменить проверку пароля добавив шифровку
+
         if (!usersTableRepository.existsByUsername(username) || username == null) {
             model.addAttribute("fail", "fail");
             return "public/login";
