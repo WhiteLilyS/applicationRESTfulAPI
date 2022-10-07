@@ -29,7 +29,7 @@ public class LoginController {
     public String checkUser(@RequestParam(name = "username") String username,
                             @RequestParam(name = "password") String password, Model model) {
 
-        if (!usersTableRepository.existsByUsername(username) || username == null) {
+        if (!usersTableRepository.existsByUsername(username)) {
             model.addAttribute("fail", "fail");
             return "public/login";
         }
