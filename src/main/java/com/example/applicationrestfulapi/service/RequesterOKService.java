@@ -9,7 +9,6 @@ import com.example.applicationrestfulapi.modelRequester.RequesterTable;
 import com.example.applicationrestfulapi.modelRequesterForm.RequesterFormRepository;
 import com.example.applicationrestfulapi.modelRequesterForm.RequesterFormTable;
 import com.example.applicationrestfulapi.modelUsersTable.UsersTableRepository;
-//import kz.gatewaysoap.requester.Requester;
 import kz.gatewaysoap.requester.RequesterOK;
 import kz.gatewaysoap.requester.Status;
 import org.springframework.beans.factory.annotation.Autowired;

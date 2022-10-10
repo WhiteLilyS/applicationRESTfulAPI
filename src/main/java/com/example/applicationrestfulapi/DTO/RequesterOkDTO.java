@@ -1,6 +1,5 @@
 package com.example.applicationrestfulapi.DTO;
 
-//import kz.gatewaysoap.requester.Requester;
 import kz.gatewaysoap.requester.RequesterOK;
 
 public class RequesterOkDTO extends RequesterOK {

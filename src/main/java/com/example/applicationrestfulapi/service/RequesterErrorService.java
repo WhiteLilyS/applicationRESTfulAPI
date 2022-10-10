@@ -2,19 +2,13 @@ package com.example.applicationrestfulapi.service;
 
 
 import com.example.applicationrestfulapi.DTO.RequesterErrorDTO;
-import com.example.applicationrestfulapi.DTO.RequesterOkDTO;
 import com.example.applicationrestfulapi.modelExternalApp.ExternalAppTable;
 import com.example.applicationrestfulapi.modelExternalApp.ExternalAppRepository;
-
 import com.example.applicationrestfulapi.modelRequester.RequesterRepository;
 import com.example.applicationrestfulapi.modelRequester.RequesterTable;
 import com.example.applicationrestfulapi.modelRequesterForm.RequesterFormRepository;
-import com.example.applicationrestfulapi.modelRequesterForm.RequesterFormTable;
 import com.example.applicationrestfulapi.modelUsersTable.UsersTableRepository;
-import com.example.applicationrestfulapi.modelUsersTable.UsersTable;
-//import kz.gatewaysoap.requester.Requester;
 import kz.gatewaysoap.requester.RequesterERROR;
-import kz.gatewaysoap.requester.RequesterOK;
 import kz.gatewaysoap.requester.Status;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

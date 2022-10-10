@@ -1,16 +1,11 @@
 package com.example.applicationrestfulapi.modelRequester;
 
 
-//import com.example.gatewaysoap.modelExternalApp.IExternalAppRepository;
-
 import com.example.applicationrestfulapi.modelExternalApp.ExternalAppRepository;
-
-
 import com.example.applicationrestfulapi.modelRequesterForm.RequesterFormRepository;
 import com.example.applicationrestfulapi.modelUsersTable.UsersTableRepository;
 import com.example.applicationrestfulapi.service.RequesterErrorService;
 import com.example.applicationrestfulapi.service.RequesterOKService;
-
 import kz.gatewaysoap.requester.GetMessageDataRequest;
 import kz.gatewaysoap.requester.GetResponseInfoResponse;
 import org.springframework.beans.factory.annotation.Autowired;
