@@ -5,6 +5,7 @@ import com.example.applicationrestfulapi.modelUsersTable.UsersTable;
 import com.example.applicationrestfulapi.modelUsersTable.UsersTableRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class LoginController {
     @Autowired
     private UsersTableRepository usersTableRepository;
-
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @GetMapping("")
     public String getRequest() {
@@ -33,7 +35,7 @@ public class LoginController {
             return "public/login";
         }
         UsersTable usersTable = usersTableRepository.findByUsername(username);
-        if (!usersTable.getPassword().equals(password)) {
+        if (!passwordEncoder.matches(password,usersTable.getPassword())) {
             model.addAttribute("fail", "fail");
             return "public/login";
         }

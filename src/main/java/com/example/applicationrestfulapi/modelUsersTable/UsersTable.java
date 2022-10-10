@@ -14,4 +14,6 @@ public class UsersTable {
     private String username;
     private String password;
     private Boolean is_active;
+    @Column(name = "role_id")
+    private Long roleId;
 }
