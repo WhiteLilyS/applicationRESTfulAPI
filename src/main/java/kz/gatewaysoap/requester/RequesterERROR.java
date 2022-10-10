@@ -17,9 +17,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for requesterERROR complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="requesterERROR"&gt;
  *   &lt;complexContent&gt;
@@ -32,13 +32,11 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "requesterERROR", propOrder = {
-    "status",
-    "messageError"
+        "status",
+        "messageError"
 })
 public class RequesterERROR {
 
@@ -50,11 +48,9 @@ public class RequesterERROR {
 
     /**
      * Gets the value of the status property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Status }
-     *     
+     *
+     * @return possible object is
+     * {@link Status }
      */
     public Status getStatus() {
         return status;
@@ -62,11 +58,9 @@ public class RequesterERROR {
 
     /**
      * Sets the value of the status property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Status }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Status }
      */
     public void setStatus(Status value) {
         this.status = value;
@@ -74,11 +68,9 @@ public class RequesterERROR {
 
     /**
      * Gets the value of the messageError property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getMessageError() {
         return messageError;
@@ -86,11 +78,9 @@ public class RequesterERROR {
 
     /**
      * Sets the value of the messageError property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setMessageError(String value) {
         this.messageError = value;

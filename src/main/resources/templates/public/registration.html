@@ -7,17 +7,16 @@
 <body>
 <section class="container">
     <div class="registration">
-        <form  th:action="@{/registration/saveUser}" method="post">
+        <form th:action="@{/registration/saveUser}" method="post">
             <p>Регистрация</p>
-<!--            <p>Введите данные</p>-->
             <input type="text" class="enterInput" required placeholder="Логин" name="username">
             <input type="password" class="enterInput" required placeholder="Пароль" name="password">
             <div class="registrationButton">
                 <input type="submit" class="enterInput" value="Зарегестрироваться">
             </div>
         </form>
-        <form class="authenticationButton" method="get"  th:action="@{/login}">
-            <input type="submit"  value="Авторизация">
+        <form class="authenticationButton" method="get" th:action="@{/login}">
+            <input type="submit" value="Авторизация">
         </form>
     </div>
     <div>

@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@Table(name="external_app")
+@Table(name = "external_app")
 public class ExternalAppTable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

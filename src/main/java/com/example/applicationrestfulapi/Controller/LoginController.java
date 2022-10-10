@@ -35,7 +35,7 @@ public class LoginController {
             return "public/login";
         }
         UsersTable usersTable = usersTableRepository.findByUsername(username);
-        if (!passwordEncoder.matches(password,usersTable.getPassword())) {
+        if (!passwordEncoder.matches(password, usersTable.getPassword())) {
             model.addAttribute("fail", "fail");
             return "public/login";
         }

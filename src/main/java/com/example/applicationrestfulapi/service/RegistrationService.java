@@ -6,8 +6,7 @@ import java.util.Random;
 
 @Service
 public class RegistrationService {
-
-    public boolean booleanRand(){
+    public boolean booleanRand() {
         return new Random().nextBoolean();
     }
 }

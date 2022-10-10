@@ -21,10 +21,12 @@
             <input type="submit" value="Войти">
         </div>
     </form>
-    <div class="failInput" >
-        <input type="text" th:if="${fail} == fail" style="visibility: visible;width: 260px " value="Неправильно введено имя или пароль" disabled>
+    <div class="failInput">
+        <input type="text" th:if="${fail} == fail" style="visibility: visible;width: 260px "
+               value="Неправильно введено имя или пароль" disabled>
 
-        <input type="text" th:if="${failIsActive} == failIsActive"  style="visibility: visible; width: 230px" value="Нет доступа для данного аккаунта" disabled>
+        <input type="text" th:if="${failIsActive} == failIsActive" style="visibility: visible; width: 230px"
+               value="Нет доступа для данного аккаунта" disabled>
     </div>
 </div>
 </body>

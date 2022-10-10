@@ -17,9 +17,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for requesterOK complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="requesterOK"&gt;
  *   &lt;complexContent&gt;
@@ -33,14 +33,12 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "requesterOK", propOrder = {
-    "status",
-    "requestId",
-    "messageError"
+        "status",
+        "requestId",
+        "messageError"
 })
 public class RequesterOK {
 
@@ -53,11 +51,9 @@ public class RequesterOK {
 
     /**
      * Gets the value of the status property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Status }
-     *     
+     *
+     * @return possible object is
+     * {@link Status }
      */
     public Status getStatus() {
         return status;
@@ -65,11 +61,9 @@ public class RequesterOK {
 
     /**
      * Sets the value of the status property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Status }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Status }
      */
     public void setStatus(Status value) {
         this.status = value;
@@ -77,7 +71,6 @@ public class RequesterOK {
 
     /**
      * Gets the value of the requestId property.
-     * 
      */
     public long getRequestId() {
         return requestId;
@@ -85,7 +78,6 @@ public class RequesterOK {
 
     /**
      * Sets the value of the requestId property.
-     * 
      */
     public void setRequestId(long value) {
         this.requestId = value;
@@ -93,11 +85,9 @@ public class RequesterOK {
 
     /**
      * Gets the value of the messageError property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getMessageError() {
         return messageError;
@@ -105,11 +95,9 @@ public class RequesterOK {
 
     /**
      * Sets the value of the messageError property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setMessageError(String value) {
         this.messageError = value;

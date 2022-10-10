@@ -17,9 +17,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType&gt;
  *   &lt;complexContent&gt;
@@ -32,13 +32,11 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "requester",
-    "sender"
+        "requester",
+        "sender"
 })
 @XmlRootElement(name = "getResponseInfoResponse")
 public class GetResponseInfoResponse {
@@ -50,11 +48,9 @@ public class GetResponseInfoResponse {
 
     /**
      * Gets the value of the requester property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link RequesterOK }
-     *     
+     *
+     * @return possible object is
+     * {@link RequesterOK }
      */
     public RequesterOK getRequester() {
         return requester;
@@ -62,11 +58,9 @@ public class GetResponseInfoResponse {
 
     /**
      * Sets the value of the requester property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link RequesterOK }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link RequesterOK }
      */
     public void setRequester(RequesterOK value) {
         this.requester = value;
@@ -74,11 +68,9 @@ public class GetResponseInfoResponse {
 
     /**
      * Gets the value of the sender property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link RequesterERROR }
-     *     
+     *
+     * @return possible object is
+     * {@link RequesterERROR }
      */
     public RequesterERROR getSender() {
         return sender;
@@ -86,11 +78,9 @@ public class GetResponseInfoResponse {
 
     /**
      * Sets the value of the sender property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link RequesterERROR }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link RequesterERROR }
      */
     public void setSender(RequesterERROR value) {
         this.sender = value;
