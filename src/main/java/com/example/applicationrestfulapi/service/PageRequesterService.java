@@ -1,9 +1,8 @@
 package com.example.applicationrestfulapi.service;
 
-import com.example.applicationrestfulapi.modelRequesterForm.RequesterFormRepository;
-import com.example.applicationrestfulapi.modelRequesterForm.RequesterFormTable;
+import com.example.applicationrestfulapi.repository.RequesterFormRepository;
+import com.example.applicationrestfulapi.entity.RequesterFormTable;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -27,4 +26,5 @@ public class PageRequesterService {
             requesterFormTable.setAnswer("negativeAnswer");
         }
     }
+
 }

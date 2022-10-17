@@ -1,5 +1,6 @@
-package com.example.applicationrestfulapi.modelRequesterForm;
+package com.example.applicationrestfulapi.repository;
 
+import com.example.applicationrestfulapi.entity.RequesterFormTable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

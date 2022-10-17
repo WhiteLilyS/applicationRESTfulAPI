@@ -1,6 +1,7 @@
-package com.example.applicationrestfulapi.modelUsersTable;
+package com.example.applicationrestfulapi.repository;
 
 
+import com.example.applicationrestfulapi.entity.UsersTable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

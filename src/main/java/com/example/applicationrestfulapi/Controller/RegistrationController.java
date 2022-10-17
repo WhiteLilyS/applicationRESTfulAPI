@@ -1,8 +1,8 @@
 package com.example.applicationrestfulapi.Controller;
 
 
-import com.example.applicationrestfulapi.modelUsersTable.UsersTable;
-import com.example.applicationrestfulapi.modelUsersTable.UsersTableRepository;
+import com.example.applicationrestfulapi.entity.UsersTable;
+import com.example.applicationrestfulapi.repository.UsersTableRepository;
 import com.example.applicationrestfulapi.service.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -12,9 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import sun.security.util.Password;
-
-import javax.management.relation.Role;
 
 @Controller
 @RequestMapping("/registration")

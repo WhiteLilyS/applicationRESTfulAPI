@@ -1,4 +1,4 @@
-package com.example.applicationrestfulapi.modelRole;
+package com.example.applicationrestfulapi.entity;
 
 import lombok.Data;
 

@@ -1,9 +1,11 @@
-package com.example.applicationrestfulapi.modelRequester;
+package com.example.applicationrestfulapi.endpoint;
 
 
-import com.example.applicationrestfulapi.modelExternalApp.ExternalAppRepository;
-import com.example.applicationrestfulapi.modelRequesterForm.RequesterFormRepository;
-import com.example.applicationrestfulapi.modelUsersTable.UsersTableRepository;
+import com.example.applicationrestfulapi.entity.RequesterTable;
+import com.example.applicationrestfulapi.repository.ExternalAppRepository;
+import com.example.applicationrestfulapi.repository.RequesterFormRepository;
+import com.example.applicationrestfulapi.repository.RequesterRepository;
+import com.example.applicationrestfulapi.repository.UsersTableRepository;
 import com.example.applicationrestfulapi.service.RequesterErrorService;
 import com.example.applicationrestfulapi.service.RequesterOKService;
 import kz.gatewaysoap.requester.GetMessageDataRequest;

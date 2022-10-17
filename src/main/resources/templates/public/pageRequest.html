@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <link rel="stylesheet" th:href="@{/css/pageRequest.css}">
+    <link rel="stylesheet" th:href="@{/style/pageRequest.css}">
     <title>Title</title>
     <meta charset="UTF-8">
 </head>
 <body>
 <div>
+    <input>
     <table class="table">
         <tr th:each="requesterFormTable : ${requesterFormTableDTOList}">
             <td th:text="${requesterFormTable.getId()}"></td>
@@ -15,7 +16,7 @@
             <td th:text="${requesterFormTable.getRequesterId()}"></td>
             <td th:text="${requesterFormTable.getContent()}"></td>
             <td th:if="${requesterFormTable.getAnswer()}==null" style="visibility: visible">
-                <form th:action="@{/pageRequest/postRequestAnswer}" method="post">
+                <form th:action="@{/user/pageRequest/postRequestAnswer}" method="post">
                     <div class="radio-buttons">
                         <input type="text" name="requesterFormTableId" th:value="${requesterFormTable.getId()}"
                                style="display: none">
@@ -35,6 +36,18 @@
             </td>
         </tr>
     </table>
+</div>
+<div>
+    <form id="logout" action="/logout" method="post">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+    </form>
+    <script>
+        $(function(){
+            $('#logoutLink').click(function(){
+                $('#logout').submit();
+            });
+        });
+    </script>
 </div>
 </body>
 </html>

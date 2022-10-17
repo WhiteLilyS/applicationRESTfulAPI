@@ -1,4 +1,4 @@
-package com.example.applicationrestfulapi.modelRequester;
+package com.example.applicationrestfulapi.entity;
 
 import lombok.Data;
 
